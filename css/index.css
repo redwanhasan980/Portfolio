@@ -1,0 +1,149 @@
+/* Reset margin and padding, and set background */
+body {
+  margin: 0;
+  padding: 0;
+  background: #f8f8f8; /* off-white */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #121212; /* change text color to dark for contrast */
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Text block in the top-left corner with padding */
+.text-corner {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  z-index: 10;
+  user-select: none;
+}
+
+.text-corner h1 {
+  font-size: 3.5rem;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  color: #ff9f43; /* warm orange */
+  text-shadow: 0 0 8px #ff9f43;
+}
+
+.text-corner h2 {
+  font-size: 2.5rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid #ff9f43;
+  width: max-content;
+  font-weight: 500;
+  color: #121212;
+  text-shadow: 0 0 5px #767676;
+}
+
+/* Image slider container centered and big */
+#image-slider {
+  position: fixed;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  
+  
+  
+  width: 900px;
+  height: 600px;
+ 
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px 0 rgba(255, 159, 67, 0.37),
+    inset 0 0 60px 5px rgba(255, 159, 67, 0.2);
+  background: rgba(255, 159, 67, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 159, 67, 0.3);
+}
+
+/* Images inside slider */
+#image-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  transition: opacity 1s ease-in-out;
+  border-radius: 25px;
+}
+
+#image-slider img.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Make text selection disabled on dynamic text */
+#dynamic-text {
+  user-select: none;
+}
+
+/* Bouncing football ball buttons */
+.ball {
+  position: fixed; /* fixed to viewport */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: box-shadow 0.2s ease;
+  z-index: 20; /* above other content */
+}
+
+.ball img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ball:hover {
+  transform: scale(1.05);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.ball-container {
+  position: fixed; /* We'll control position with JS */
+  width: 80px;
+  text-align: center;
+  user-select: none;
+  z-index: 20;
+  pointer-events: auto; /* allow clicks */
+}
+.ball-container, .ball {
+  box-sizing: border-box;
+}
+
+.ball-label {
+  font-size: 14px;
+  color: #000000;
+  margin-top: 80px;    /* add more space below ball */
+  margin-left: 40px;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+  pointer-events: none;
+  text-align: center;  /* center label text */
+  width: 100%;         /* full width of container */
+
+  /* White border (stroke) */
+  -webkit-text-stroke: 0.2px rgb(41, 41, 41); /* for Safari/Chrome */
+  text-stroke: 0.2px rgb(159, 158, 158);         /* standard but less supported */
+
+  /* Fallback with multiple shadows to simulate stroke */
+  text-shadow:
+    -1px -1px 0 white,
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white;
+}
+
+

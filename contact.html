@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Form with Nav</title>
+  <link rel="stylesheet" href="css/contact.css" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="nav-bar">
+    <button onclick="navigate('index.html')">Home</button>
+    <button onclick="navigate('ImportantStuff.html')">Important Stuff</button>
+    <button onclick="navigate('UnnecessaryStuff.html')">Unnecessary Stuff</button>
+    <button onclick="navigate('VibeCheck.html')">Vibe Check</button>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="container">
+    <h1>Send a Message</h1>
+    <form id="contact-form">
+      <input type="text" name="from_name" placeholder="Your Name" required>
+      <input type="email" name="reply_to" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <div id="form-status"></div>
+
+    <div id="popup" class="popup hidden">
+  <div class="popup-content">
+    <div id="popup-loading" class="loader"></div>
+    <div id="popup-message" class="message"></div>
+    <button id="popup-close-btn">Close</button>
+  </div>
+</div>
+
+  <div class="social-links">
+  <a href="https://www.facebook.com/redwan.hassan.572674"><i class="fab fa-facebook"></i></a>
+  <a href="https://twitter.com"><i class="fab fa-x-twitter"></i></a>
+  <a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+  <a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+
+  <script src="javascripts/contact.js"></script>
+</body>
+</html>

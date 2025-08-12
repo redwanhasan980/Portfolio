@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Check</title>
+    <link rel="stylesheet" href="css/VibeCheck.css">
+</head>
+<body>
+      <nav class="top-navbar">
+        <div class="nav-container">
+            <div class="nav-logo">🎯 VIBE</div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="home">🏠 Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="important">⭐ Important Stuff</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="unnecessary">🎲 Unnecessary Stuff</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="contact">📞 Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <h1 class="main-title">🎯VIBE CHECK🎯</h1>
+            <p class="subtitle">Let's see if we're on the same wavelength!</p>
+            <button id="start-btn" class="big-button">Start the Vibe Check!</button>
+        </div>
+
+        <!-- Survey Screen -->
+        <div id="survey-screen" class="screen">
+            <div class="progress-bar">
+                <div id="progress" class="progress-fill"></div>
+            </div>
+            
+            <div class="question-container">
+                <h2 id="question-text" class="question"></h2>
+                <div class="options">
+                    <button class="option-btn" data-answer="yes">✅ Yes</button>
+                    <button class="option-btn" data-answer="no">❌ No</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="screen">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <h2 class="loading-text">Calculating your vibe...</h2>
+                <div class="loading-dots">
+                    <span>.</span>
+                    <span>.</span>
+                    <span>.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="results-content">
+                <h1 class="results-title">🎉 VIBE CHECK COMPLETE! 🎉</h1>
+                <div class="score-display">
+                    <span id="score-number">95</span>%
+                </div>
+                <p class="results-message">
+                    You have <span id="final-score">95</span>% vibe match with me!<br>
+                    Let's work together! 🥺
+                </p>
+                <button id="contact-btn" class="big-button">Get In Touch!</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascripts/VibeCheck.js"></script>
+</body>
+</html>

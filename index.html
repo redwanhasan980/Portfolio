@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Redwan's Portfolio</title>
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<div class="container">     
+  <div class="text-corner">
+    <h1>HI! I am Redwan</h1>
+    <h2>I love <span id="dynamic-text"></span></h2>
+  </div>
+
+  <div id="image-slider">
+    <img src="images/p1.jpg" class="active" alt="Image 1" />
+    <img src="images/p2.jpg" alt="Image 2" />
+    <img src="images/p3.jpg" alt="Image 3" />
+    <img src="images/p4.jpg" alt="Image 4" />
+  </div>
+ <!-- Bouncing balls container for each ball + label -->
+<div class="ball-container" id="ball-container1">
+  <button class="ball" id="ball1" onclick="location.href='ImportantStuff.html'">
+    <img src="images/brazuca.png" alt="football" />
+  </button>
+  <div class="ball-label">Important Stuff</div>
+</div>
+
+<div class="ball-container" id="ball-container2">
+  <button class="ball" id="ball2" onclick="location.href='UnnecessaryStuff.html'">
+    <img src="images/telstar.png" alt="football" />
+  </button>
+  <div class="ball-label">Unnecessary Stuff</div>
+</div>
+
+<div class="ball-container" id="ball-container3">
+  <button class="ball" id="ball3" onclick="location.href='contact.html'">
+    <img src="images/alrihla.png" alt="football" />
+  </button>
+  <div class="ball-label">Get in Touch</div>
+</div>
+
+<div class="ball-container" id="ball-container4">
+  <button class="ball" id="ball4" onclick="location.href='VibeCheck.html'">
+    <img src="images/jabulani.png" alt="football" />
+  </button>
+  <div class="ball-label">Vibe Check</div>
+</div>
+
+</div>
+  <script src="javascripts/home.js"></script>
+</body>
+</html>

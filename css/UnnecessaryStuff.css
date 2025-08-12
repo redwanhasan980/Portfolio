@@ -1,0 +1,227 @@
+/* Reset and base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #f9f9f9 url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+  color: #222;
+}
+
+/* Page Title */
+.page-title {
+  text-align: center;
+  font-size: 3.8rem;
+  padding: 40px 20px 20px;
+  color: #222;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Sections container */
+.section {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
+/* Containers for projects and XP */
+.projects-container,
+.xp-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0;
+}
+
+/* Card base style */
+.project-card,
+.xp-card {
+  background: #fefcf9;       /* Off-white background */
+  border: 8px solid;         /* Thick frame border, color assigned below */
+  border-radius: 0;          /* No rounding */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding-bottom: 25px;
+  color: #222;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  width: 100%;               /* Full container width */
+  max-width: 900px;
+}
+
+.project-card:hover,
+.xp-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+/* Colored borders cycling through */
+.project-card:nth-child(1)  { border-color: #0077b6; } /* Blue */
+.project-card:nth-child(2)  { border-color: #00b4d8; } /* Light Blue */
+.project-card:nth-child(3)  { border-color: #90e0ef; } /* Soft Cyan */
+.project-card:nth-child(4)  { border-color: #48cae4; } /* Medium Cyan */
+.project-card:nth-child(5)  { border-color: #00ff94; } /* Neon Green */
+.project-card:nth-child(6)  { border-color: #38b000; } /* Green */
+.project-card:nth-child(7)  { border-color: #ffd60a; } /* Bright Yellow */
+.project-card:nth-child(8)  { border-color: #ffba08; } /* Warm Yellow */
+.project-card:nth-child(9)  { border-color: #0077b6; }
+.project-card:nth-child(10) { border-color: #00b4d8; }
+.project-card:nth-child(11) { border-color: #90e0ef; }
+
+/* XP cards color cycle */
+.xp-card:nth-child(odd)  { border-color: #0077b6; }
+.xp-card:nth-child(even) { border-color: #00b4d8; }
+
+/* Headings */
+.project-card h3,
+.xp-card h3 {
+  margin: 25px 25px 10px;
+  color: #222;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Video wrapper */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  margin: 0 25px 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 8px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Description paragraph */
+.project-card .description {
+  padding: 0 25px 25px 25px;
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* XP card specific */
+.xp-card {
+  padding-bottom: 30px;
+  border-radius: 0;
+}
+
+.xp-card img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.xp-card p {
+  padding: 0 25px 25px 25px;
+  font-size: 1rem;
+  color: #666;
+  font-weight: 500;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .section {
+    padding: 0 15px 40px;
+  }
+  .project-card,
+  .xp-card {
+    width: 100%;
+    max-width: 100%;
+  }
+  .page-title {
+    font-size: 2.8rem;
+    padding: 30px 15px 15px;
+  }
+}
+
+.fixed-top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backdrop-filter: none;
+  background: transparent;
+  border-bottom: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px 0;
+  z-index: 9999;
+  box-shadow: none;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 15px 30px;
+  color: #252525;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  box-shadow:
+    0 8px 15px rgba(0, 0, 0, 0.15); /* Soft shadow */
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  user-select: none;
+  
+  animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: #fff;
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  transform: translateY(-6px) scale(1.05);
+}
+
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.robot-gif {
+  width: 48px;
+  height: 48px;
+  pointer-events: none;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.322));
+  border-radius: 5px;
+}
+
+/* Make sure content below doesn't get hidden */
+body {
+  padding-top: 50px; /* Enough for big nav bar */
+}
