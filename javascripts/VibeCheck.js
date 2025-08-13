@@ -28,11 +28,9 @@ const contactBtn = document.getElementById('contact-btn');
 startBtn.addEventListener('click', startSurvey);
 contactBtn.addEventListener('click', handleContact);
 
-
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
-
 
 optionButtons.forEach(btn => {
     btn.addEventListener('click', handleAnswer);
@@ -73,7 +71,7 @@ function handleNavigation(e) {
             window.location.href = contactUrl;
             break;
         case 'contact':
-            ontactUrl = 'contact.html';
+            contactUrl = 'contact.html';  // Fixed typo here (was ontactUrl)
             window.location.href = contactUrl;
             break;
     }
@@ -130,8 +128,8 @@ function handleAnswer(e) {
 function showLoading() {
     showScreen('loading');
 
-    // Random loading time between 4-7 seconds
-    const loadingTime = Math.random() * 2000 + 1000; // 4000-7000ms
+    // Random loading time between 1-3 seconds (fixed comment mismatch)
+    const loadingTime = Math.random() * 2000 + 1000;
 
     setTimeout(() => {
         showResults();
@@ -173,15 +171,8 @@ function animateScore(targetScore) {
 }
 
 function handleContact() {
-
-    contactUrl = '../contact.html';
-
-
+    const contactUrl = '/Portfolio/contact.html';
     window.location.href = contactUrl;
-
-
-
-    ;
 }
 
 function resetSurvey() {
