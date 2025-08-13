@@ -2,11 +2,20 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vibe Check</title>
     <link rel="stylesheet" href="css/VibeCheck.css">
+    <style>
+        /* Simple screen toggle effect */
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,16 +24,16 @@
             <div class="nav-logo">🎯 VIBE</div>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-page="home">🏠 Home</a>
+                    <a href="#" class="nav-link" data-page="welcome-screen">🏠 Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-page="important">⭐ Important Stuff</a>
+                    <a href="#" class="nav-link" data-page="important-screen">⭐ Important Stuff</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-page="unnecessary">🎲 Unnecessary Stuff</a>
+                    <a href="#" class="nav-link" data-page="unnecessary-screen">🎲 Unnecessary Stuff</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" data-page="contact">📞 Contact</a>
+                    <a href="#" class="nav-link" data-page="contact-screen">📞 Contact</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -34,12 +43,31 @@
             </div>
         </div>
     </nav>
+
     <div class="container">
-        <!-- Welcome Screen -->
+        <!-- Home Screen -->
         <div id="welcome-screen" class="screen active">
             <h1 class="main-title">🎯VIBE CHECK🎯</h1>
             <p class="subtitle">Let's see if we're on the same wavelength!</p>
-            <button id="start-btn" class="big-button">Start the Vibe Check!</button>
+            <button id="start-btn" class="big-button" data-page="survey-screen">Start the Vibe Check!</button>
+        </div>
+
+        <!-- Important Stuff -->
+        <div id="important-screen" class="screen">
+            <h1>⭐ Important Stuff</h1>
+            <p>This is where all the serious vibe-worthy stuff goes.</p>
+        </div>
+
+        <!-- Unnecessary Stuff -->
+        <div id="unnecessary-screen" class="screen">
+            <h1>🎲 Unnecessary Stuff</h1>
+            <p>Just some random fun stuff to lighten the mood!</p>
+        </div>
+
+        <!-- Contact Screen -->
+        <div id="contact-screen" class="screen">
+            <h1>📞 Contact Me</h1>
+            <p>Let’s connect! Email me at <strong>you@example.com</strong>.</p>
         </div>
 
         <!-- Survey Screen -->
@@ -47,7 +75,6 @@
             <div class="progress-bar">
                 <div id="progress" class="progress-fill"></div>
             </div>
-
             <div class="question-container">
                 <h2 id="question-text" class="question"></h2>
                 <div class="options">
@@ -81,12 +108,31 @@
                     You have <span id="final-score">95</span>% vibe match with me!<br>
                     Let's work together! 🥺
                 </p>
-                <button id="contact-btn" class="big-button">Get In Touch!</button>
+                <button id="contact-btn" class="big-button" data-page="contact-screen">Get In Touch!</button>
             </div>
         </div>
     </div>
 
-    <script src="javascripts/VibeCheck.js"></script>
+    <script>
+        // Navigation logic
+        document.querySelectorAll('[data-page]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = el.getAttribute('data-page');
+
+                // Hide all screens
+                document.querySelectorAll('.screen').forEach(screen => {
+                    screen.classList.remove('active');
+                });
+
+                // Show selected screen
+                const target = document.getElementById(pageId);
+                if (target) {
+                    target.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
