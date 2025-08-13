@@ -56,12 +56,10 @@ This repository showcases my diverse projects — from web development and mobil
 ---
 
 ## 📫 Contact
-- **Email:** your-email@example.com  
-- **LinkedIn:** [Your LinkedIn URL]  
-- **GitHub:** [Your GitHub URL]  
-- **YouTube:** [Your YouTube Channel]  
+- **Email:** redwanhasan980@gmail.com
+- **LinkedIn:** https://www.linkedin.com/in/md-redwan-hasan-043a912b1/
+- **YouTube:** https://www.youtube.com/@sahaj_coding
 
 ---
 
-### 📜 License
-This repository is for showcasing my personal projects. Feel free to explore the code and ideas, but please credit me if you use any part of it.
+
