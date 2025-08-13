@@ -131,7 +131,7 @@ function showLoading() {
     showScreen('loading');
     
     // Random loading time between 4-7 seconds
-    const loadingTime = Math.random() * 3000 + 4000; // 4000-7000ms
+    const loadingTime = Math.random() * 2000+1000 ; // 4000-7000ms
     
     setTimeout(() => {
         showResults();
