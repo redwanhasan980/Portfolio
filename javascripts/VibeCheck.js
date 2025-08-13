@@ -24,25 +24,30 @@ const scoreNumber = document.getElementById('score-number');
 const finalScore = document.getElementById('final-score');
 const contactBtn = document.getElementById('contact-btn');
 
-// Navigation
+// Event listeners
+startBtn.addEventListener('click', startSurvey);
+contactBtn.addEventListener('click', handleContact);
+
+
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-// Event listeners
-startBtn.addEventListener('click', startSurvey);
-contactBtn.addEventListener('click', () => showScreen('contact'));
-optionButtons.forEach(btn => btn.addEventListener('click', handleAnswer));
-hamburger.addEventListener('click', toggleMobileMenu);
-navLinks.forEach(link => link.addEventListener('click', handleNavigation));
 
-// Mobile menu toggle
+optionButtons.forEach(btn => {
+    btn.addEventListener('click', handleAnswer);
+});
+hamburger.addEventListener('click', toggleMobileMenu);
+
+navLinks.forEach(link => {
+    link.addEventListener('click', handleNavigation);
+});
+
 function toggleMobileMenu() {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
 }
 
-// Handle navigation between sections in the same HTML file
 function handleNavigation(e) {
     e.preventDefault();
     const page = e.target.dataset.page;
@@ -51,7 +56,27 @@ function handleNavigation(e) {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
 
-    showScreen(page);
+    // Handle different navigation options
+    let contactUrl;
+    switch (page) {
+
+        case 'home':
+            contactUrl = 'index.html';
+            window.location.href = contactUrl;
+            break;
+        case 'important':
+            contactUrl = 'ImportantStuff.html';
+            window.location.href = contactUrl;
+            break;
+        case 'unnecessary':
+            contactUrl = 'UnnecessaryStuff.html';
+            window.location.href = contactUrl;
+            break;
+        case 'contact':
+            ontactUrl = 'contact.html';
+            window.location.href = contactUrl;
+            break;
+    }
 }
 
 function startSurvey() {
@@ -67,9 +92,7 @@ function showScreen(screenName) {
 
     // Show target screen
     const targetScreen = document.getElementById(screenName + '-screen');
-    if (targetScreen) {
-        targetScreen.classList.add('active');
-    }
+    targetScreen.classList.add('active');
 }
 
 function displayQuestion() {
@@ -86,53 +109,79 @@ function updateProgress() {
 
 function handleAnswer(e) {
     const answer = e.target.dataset.answer;
-    if (answer === 'yes') yesCount++;
+
+    if (answer === 'yes') {
+        yesCount++;
+    }
 
     currentQuestion++;
 
     if (currentQuestion < questions.length) {
+        // Add a small delay for better UX
         setTimeout(() => {
             displayQuestion();
         }, 200);
     } else {
+        // Survey complete, show loading
         showLoading();
     }
 }
 
 function showLoading() {
     showScreen('loading');
-    const loadingTime = Math.random() * 2000 + 1000;
-    setTimeout(showResults, loadingTime);
+
+    // Random loading time between 4-7 seconds
+    const loadingTime = Math.random() * 2000 + 1000; // 4000-7000ms
+
+    setTimeout(() => {
+        showResults();
+    }, loadingTime);
 }
 
 function showResults() {
     showScreen('results');
 
+    // Calculate score based on yes answers (85-100%)
     let score;
     if (yesCount === 0) score = 85;
     else if (yesCount === 1) score = 88;
     else if (yesCount === 2) score = 91;
     else if (yesCount === 3) score = 94;
     else if (yesCount === 4) score = 97;
-    else score = 100;
+    else score = 100; // All yes answers
 
+    // Animate score counting up
     animateScore(score);
 }
 
 function animateScore(targetScore) {
     let currentScore = 85;
-    const increment = (targetScore - 85) / 20;
+    const increment = (targetScore - 85) / 20; // Animate over 20 steps
 
     const scoreAnimation = setInterval(() => {
         currentScore += increment;
+
         if (currentScore >= targetScore) {
             currentScore = targetScore;
             clearInterval(scoreAnimation);
         }
+
         const roundedScore = Math.round(currentScore);
         scoreNumber.textContent = roundedScore;
         finalScore.textContent = roundedScore;
     }, 50);
+}
+
+function handleContact() {
+
+    contactUrl = '../contact.html';
+
+
+    window.location.href = contactUrl;
+
+
+
+    ;
 }
 
 function resetSurvey() {
@@ -142,19 +191,29 @@ function resetSurvey() {
     showScreen('welcome');
 }
 
-// Button click animation & keyboard shortcuts
+// Add some fun interactions
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('button').forEach(button => {
+    // Add click sound effect (optional)
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
         button.addEventListener('click', () => {
             button.style.transform = 'scale(0.95)';
-            setTimeout(() => button.style.transform = '', 100);
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 100);
         });
     });
 
+    // Add keyboard support
     document.addEventListener('keydown', (e) => {
         if (surveyScreen.classList.contains('active')) {
-            if (e.key === '1' || e.key.toLowerCase() === 'y') optionButtons[0].click();
-            else if (e.key === '2' || e.key.toLowerCase() === 'n') optionButtons[1].click();
+            if (e.key === '1' || e.key.toLowerCase() === 'y') {
+                // Simulate clicking Yes button
+                optionButtons[0].click();
+            } else if (e.key === '2' || e.key.toLowerCase() === 'n') {
+                // Simulate clicking No button
+                optionButtons[1].click();
+            }
         }
     });
 });
