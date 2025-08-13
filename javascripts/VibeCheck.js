@@ -57,26 +57,25 @@ function handleNavigation(e) {
     navMenu.classList.remove('active');
 
     // Handle different navigation options
-    let contactUrl;
-    switch (page) {
 
+    const base = window.location.origin + "/Portfolio/";
+
+    switch (page) {
         case 'home':
-            contactUrl = 'index.html';
-            window.location.href = contactUrl;
+            window.location.href = base + 'index.html';
             break;
         case 'important':
-            contactUrl = 'ImportantStuff.html';
-            window.location.href = contactUrl;
+            window.location.href = base + 'ImportantStuff.html';
             break;
         case 'unnecessary':
-            contactUrl = 'UnnecessaryStuff.html';
-            window.location.href = contactUrl;
+            window.location.href = base + 'UnnecessaryStuff.html';
             break;
         case 'contact':
-            ontactUrl = 'contact.html';
-            window.location.href = contactUrl;
+            window.location.href = base + 'contact.html';
             break;
     }
+
+
 }
 
 function startSurvey() {
