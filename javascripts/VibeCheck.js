@@ -51,31 +51,31 @@ function toggleMobileMenu() {
 function handleNavigation(e) {
     e.preventDefault();
     const page = e.target.dataset.page;
-    
+
     // Close mobile menu if open
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
-    
+
     // Handle different navigation options
     let contactUrl;
-    switch(page) {
-        
+    switch (page) {
+
         case 'home':
-        contactUrl = '../index.html'; 
-        window.location.href = contactUrl;
-        break;
+            contactUrl = 'index.html';
+            window.location.href = contactUrl;
+            break;
         case 'important':
-             contactUrl = '../ImportantStuff.html'; 
-        window.location.href = contactUrl;
-        break;
+            contactUrl = 'ImportantStuff.html';
+            window.location.href = contactUrl;
+            break;
         case 'unnecessary':
-             contactUrl = '../UnnecessaryStuff.html'; 
-        window.location.href = contactUrl;
-        break;
+            contactUrl = 'UnnecessaryStuff.html';
+            window.location.href = contactUrl;
+            break;
         case 'contact':
-            ontactUrl = '../contact.html'; 
-        window.location.href = contactUrl;
-        break;
+            ontactUrl = 'contact.html';
+            window.location.href = contactUrl;
+            break;
     }
 }
 
@@ -89,7 +89,7 @@ function showScreen(screenName) {
     document.querySelectorAll('.screen').forEach(screen => {
         screen.classList.remove('active');
     });
-    
+
     // Show target screen
     const targetScreen = document.getElementById(screenName + '-screen');
     targetScreen.classList.add('active');
@@ -109,13 +109,13 @@ function updateProgress() {
 
 function handleAnswer(e) {
     const answer = e.target.dataset.answer;
-    
+
     if (answer === 'yes') {
         yesCount++;
     }
-    
+
     currentQuestion++;
-    
+
     if (currentQuestion < questions.length) {
         // Add a small delay for better UX
         setTimeout(() => {
@@ -129,10 +129,10 @@ function handleAnswer(e) {
 
 function showLoading() {
     showScreen('loading');
-    
+
     // Random loading time between 4-7 seconds
-    const loadingTime = Math.random() * 2000+1000 ; // 4000-7000ms
-    
+    const loadingTime = Math.random() * 2000 + 1000; // 4000-7000ms
+
     setTimeout(() => {
         showResults();
     }, loadingTime);
@@ -140,7 +140,7 @@ function showLoading() {
 
 function showResults() {
     showScreen('results');
-    
+
     // Calculate score based on yes answers (85-100%)
     let score;
     if (yesCount === 0) score = 85;
@@ -149,7 +149,7 @@ function showResults() {
     else if (yesCount === 3) score = 94;
     else if (yesCount === 4) score = 97;
     else score = 100; // All yes answers
-    
+
     // Animate score counting up
     animateScore(score);
 }
@@ -157,15 +157,15 @@ function showResults() {
 function animateScore(targetScore) {
     let currentScore = 85;
     const increment = (targetScore - 85) / 20; // Animate over 20 steps
-    
+
     const scoreAnimation = setInterval(() => {
         currentScore += increment;
-        
+
         if (currentScore >= targetScore) {
             currentScore = targetScore;
             clearInterval(scoreAnimation);
         }
-        
+
         const roundedScore = Math.round(currentScore);
         scoreNumber.textContent = roundedScore;
         finalScore.textContent = roundedScore;
@@ -173,14 +173,14 @@ function animateScore(targetScore) {
 }
 
 function handleContact() {
-   
-     contactUrl = '../contact.html'; 
-    
- 
+
+    contactUrl = '../contact.html';
+
+
     window.location.href = contactUrl;
-    
- 
-    
+
+
+
     ;
 }
 
@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 100);
         });
     });
-    
+
     // Add keyboard support
     document.addEventListener('keydown', (e) => {
         if (surveyScreen.classList.contains('active')) {
